@@ -5,6 +5,9 @@
   "repository": "https://github.com/Bigstar1108/DGSW_Movview_SERVER.git",
   "author": "bigstar7966 <daesung09854@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node ./src/server.js"
+  },
   "dependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.1",
