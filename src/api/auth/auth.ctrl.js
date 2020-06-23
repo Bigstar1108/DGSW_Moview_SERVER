@@ -9,7 +9,7 @@ export const login = async(req, res) => {
         await validate.validateLogin(body);
     }catch(error){
         const result = {
-            status : 400,
+            status : 200,
             message : 'login validate error!',
         }
 
@@ -24,7 +24,7 @@ export const login = async(req, res) => {
 
     if(!member){
         const result = {
-            status : 403,
+            status : 200,
             message : 'not found member!'
         }
 
@@ -68,7 +68,7 @@ export const registerMember = async(req, res) => {
             message : '회원가입 양식 오류!',
         }
 
-        res.status(400).json(result);
+        res.status(200).json(result);
 
         return;
     }
@@ -86,7 +86,7 @@ export const registerMember = async(req, res) => {
                 message : "이미 가입 된 사용자 Id 입니다.",
             }
 
-            res.status(403).json(result);
+            res.status(200).json(result);
 
             return;
         }else if(memberName){
@@ -95,7 +95,7 @@ export const registerMember = async(req, res) => {
                 message : "이미 가입 된 사용자 이름 입니다.",
             }
 
-            res.status(403).json(result);
+            res.status(200).json(result);
 
             return;
         }
