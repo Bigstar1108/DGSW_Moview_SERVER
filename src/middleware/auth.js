@@ -54,7 +54,7 @@ const authMiddleware = async(req, res, next) => {
             default:
                 console.log(error.message);
                 status = 500;
-                message = "다시 시도해 주세요.";
+                message = "서버오류 : 다시 시도해 주세요.";
                 break;
         }
 
