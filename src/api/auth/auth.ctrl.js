@@ -246,3 +246,24 @@ export const deleteMember = async(req, res) => {
         res.status(500).json(result);
     }
 };
+
+export const getAllMember = async(req, res) => {
+    try{
+        const results = await models.Member.getAllMember();
+
+        const result = {
+            status : 200,
+            message : "총 멤버를 불러왔습니다.",
+            total_results : results.length
+        };
+
+        res.status(200).json(result);
+    }catch(error){
+        const result = {
+            status : 500,
+            message : "서버 오류!"
+        };
+
+        res.status(500).json(result);
+    }
+};

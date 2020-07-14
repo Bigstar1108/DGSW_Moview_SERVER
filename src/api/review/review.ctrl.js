@@ -160,7 +160,8 @@ export const getReviewByName = async(req, res) => {
         const result = {
             status : 200,
             message : `${author}의 리뷰를 불러왔습니다.`,
-            results : reviews
+            results : reviews,
+            total_results : reviews.length
         }
 
         res.status(200).json(result);
@@ -197,6 +198,29 @@ export const getReviewByMovieId = async(req, res) => {
 
         res.status(200).json(result);
     }catch(error){
+        const result = {
+            status : 500,
+            message : "서버 오류!"
+        }
+
+        res.status(500).json(result);
+    }
+};
+
+export const getAllReview = async(req, res) => {
+    try{
+        const reviews = await models.Review.getAllReview();
+
+        const result = {
+            status : 200,
+            message : "모든 리뷰를 불러왔습니다.",
+            results : reviews,
+            total_results : reviews.length
+        }
+
+        res.status(200).json(result);
+    }catch(error){
+        console.log(error);
         const result = {
             status : 500,
             message : "서버 오류!"

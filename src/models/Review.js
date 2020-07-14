@@ -87,5 +87,9 @@ export default (sequelize, DataTypes) => {
         raw : true,
     });
 
+    Review.getAllReview = () => Review.findAll({
+        raw : true
+    });
+
     return Review;
 }

@@ -8,5 +8,6 @@ auth.post('/register', authCtrl.registerMember);
 auth.post('/find/id', authCtrl.validateId);
 auth.post('/find/name', authCtrl.validateName);
 auth.delete('/delete', authCtrl.deleteMember);
+auth.get('/all', authCtrl.getAllMember);
 
 export default auth;
